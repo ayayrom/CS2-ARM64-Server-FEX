@@ -115,10 +115,10 @@ function main() {
   # taskset dedicates specific cores to the emulator, else the docker container will default to using all cores
   if [ -z "$STEAM_GAMESERVER_API" ]; then
     echo "WARNING: STEAM_GAMESERVER_API is empty!"
-    exec nice -n -10 taskset -c 0-$((CORES-1)) FEXBash "./game/bin/linuxsteamrt64/cs2 -dedicated -usercon -nojoy -nohltv +mat_queue_mode 2 -threads $((CORES)) $EXTRA_PARAMS"
+    exec nice -n -10 taskset -c 0-$((CORES-1)) FEXBash "./game/bin/linuxsteamrt64/cs2 -dedicated -usercon -threads $((CORES)) $EXTRA_PARAMS"
   else
     echo "Starting server with all features..."
-    exec nice -n -10 taskset -c 0-$((CORES-1)) FEXBash "./game/bin/linuxsteamrt64/cs2 -dedicated -usercon +sv_setsteamaccount $STEAM_GAMESERVER_API +mat_queue_mode 2 -threads $((CORES)) $EXTRA_PARAMS"
+    exec nice -n -10 taskset -c 0-$((CORES-1)) FEXBash "./game/bin/linuxsteamrt64/cs2 -dedicated -usercon +sv_setsteamaccount $STEAM_GAMESERVER_API -threads $((CORES)) $EXTRA_PARAMS"
   fi
 }
 
