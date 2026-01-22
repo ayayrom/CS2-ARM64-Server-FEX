@@ -2,7 +2,7 @@
 FROM debian:bookworm AS builder
 SHELL ["/bin/bash", "-c"]
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y git curl python3 sudo cmake ninja-build pkg-config clang llvm lld nasm libsdl2-dev libepoxy-dev libssl-dev python3-dev libstdc++-12-dev squashfs-tools squashfuse qtbase5-dev qtdeclarative5-dev qt5-qmake
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y git curl python3 sudo cmake ninja-build pkg-config clang llvm lld nasm libsdl2-dev libepoxy-dev libssl-dev python3-dev libstdc++-12-dev squashfs-tools squashfuse qtbase5-dev qtdeclarative5-dev qt5-qmake unzip
 
 WORKDIR /tmp
 RUN git clone --recurse-submodules --branch FEX-2601 --depth 1 https://github.com/FEX-Emu/FEX.git
