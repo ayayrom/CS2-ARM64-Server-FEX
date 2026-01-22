@@ -2,7 +2,7 @@
 FROM debian:bookworm AS builder
 SHELL ["/bin/bash", "-c"]
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y git curl python3 sudo cmake ninja-build pkg-config clang llvm lld nasm libsdl2-dev libepoxy-dev libssl-dev python3-dev libstdc++-12-dev squashfs-tools squashfuse qtbase5-dev qtdeclarative5-dev qt5-qmake unzip
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y git curl python3 sudo cmake ninja-build pkg-config clang llvm lld nasm libsdl2-dev libepoxy-dev libssl-dev python3-dev libstdc++-12-dev squashfs-tools squashfuse qtbase5-dev qtdeclarative5-dev qt5-qmake
 
 WORKDIR /tmp
 RUN git clone --recurse-submodules --branch FEX-2601 --depth 1 https://github.com/FEX-Emu/FEX.git
@@ -19,7 +19,7 @@ RUN mkdir Build && cd Build && \
 FROM debian:bookworm-slim
 SHELL ["/bin/bash", "-c"]
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y curl python3 sudo locales libsdl2-2.0-0 libepoxy0 libssl3 libstdc++6 squashfs-tools squashfuse libqt5widgets5 libqt5qml5 && rm -rf /var/lib/apt/lists/*
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y curl python3 sudo locales unzip libsdl2-2.0-0 libepoxy0 libssl3 libstdc++6 squashfs-tools squashfuse libqt5widgets5 libqt5qml5 && rm -rf /var/lib/apt/lists/*
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     locale-gen en_US.UTF-8
