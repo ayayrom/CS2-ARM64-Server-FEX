@@ -5,11 +5,11 @@ function installServer() {
   FEXBash './steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +force_install_dir "/cs2-data" +login anonymous +app_update 730 validate +quit'
 }
 
-# LAST URL UPDATE: 1/12/2026
+# LAST URL UPDATE: 1/23/2026
 function installModding() {
   # leave as is until something breaks, idk if i should make it grab latest releases tho
-  MMS_URL="https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1380-linux.tar.gz"
-  CSS_URL="https://github.com/roflmuffin/CounterStrikeSharp/releases/download/v1.0.355/counterstrikesharp-with-runtime-linux-1.0.355.zip"
+  MMS_URL="https://mms.alliedmods.net/mmsdrop/2.0/mmsource-2.0.0-git1383-linux.tar.gz"
+  CSS_URL="https://github.com/roflmuffin/CounterStrikeSharp/releases/download/v1.0.359/counterstrikesharp-with-runtime-linux-1.0.359.zip"
 
   if [ ! -f "/cs2-data/game/csgo/addons/metamod.vdf" ]; then
     echo "Downloading Metamod"
